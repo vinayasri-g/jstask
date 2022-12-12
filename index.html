@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet" href="task.css">
+	<script>
+		function validate(){
+			var firstname=document.getElementById("firstname").value;
+			var email=document.getElementById("email").value
+			var mobile=document.getElementById("mobile").value
+			var male=document.getElementById("male")
+			var female=document.getElementById("female")
+			var password=document.getElementById("password").value
+			var firstNameCheck=/^[a-zA-Z ]+$/
+			var emailCheck=/^[a-zA-Z0-9.#]+@[a-z]+\.[a-z]{2,3}$/
+			var mobileCheck=/^[6-9]\d{9}$/
+			var passwordCheck=/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[@#$%&*-+]).{8}$/
+			if(firstname==""||firstname.length<3){
+				alert("Please enter your name")
+				return false;
+			}
+			if(!firstname.match(firstNameCheck)){
+				alert("Name must carry only characters")
+				return false
+			}
+			if(email==""){
+				alert("Email id is mandatory")
+				return false
+			}
+			if(!email.match(emailCheck)){
+				alert("check email");
+				return false
+			}
+			if(!mobile.match(mobileCheck)){
+				alert("Provide proper mobile number");
+				return false
+			}
+			if(password==""){
+				alert("Enter password");
+				return false
+			}
+			if(!password.match(passwordCheck)){
+				alert("Password must carry one uppercase, lowercase,digit, special symbol")
+				return false
+			}
+			if(male.checked==false && female.checked==false){
+				alert("Sele t your gender please");
+				return false
+			}
+
+			return true
+		}
+	</script>
+</head>
+<body>
+    <div class="formdiv">
+	<h1 class="headone">Registration Form</h1>
+	<form onsubmit="return validate()" action="login.html">
+		<p><input id="firstname" placeholder="Enter your name"/></p>
+		<p><input id="email" placeholder="Enter email ID" /></p>
+		<p><input id="mobile" placeholder="Enter mobile number"/></p>
+		<p><input type="text" placeholder="Enter password" id="password" /></p>
+		<p>
+			<input class="btn" type="radio" name="gender" id="female"/>Female
+			<input  class="btn" type="radio" name="gender" id="male"/>Male
+		</p>
+		<div class="imaggi1" >
+			<img src="https://img.freepik.com/premium-vector/consultation-solutions-with-industry-relevance_18660-1053.jpg?w=740" alt="" height="170px" width="200px">
+		</div>
+		<button class="btn2">Sign Up</button><br><br>
+		<button class="btn2">clear</button>
+	</form>
+    </div>
+</body>
+</html>
+
+
